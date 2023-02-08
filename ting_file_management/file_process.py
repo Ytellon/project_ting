@@ -2,6 +2,7 @@ from ting_file_management.queue import Queue
 from ting_file_management.file_management import txt_importer
 import sys
 
+
 def process(path_file, instance: Queue):
     file_lines = txt_importer(path_file)
     dict_file = {
@@ -12,6 +13,7 @@ def process(path_file, instance: Queue):
     if dict_file not in instance.list:
         instance.enqueue(dict_file)
         sys.stdout.write(f"{dict_file}")
+
 
 def remove(instance: Queue):
     if len(instance) == 0:
